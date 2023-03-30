@@ -1,0 +1,16 @@
+from scipy.optimize import newton
+# Объявление функции с левой частью уравнения
+def my_fun(x):
+    return x**3-0.5*x**2-8*x-7.5
+# Вызов функций, решающих уравнение
+x1 = newton(my_fun,0)
+x2 = newton(my_fun,1)
+x3 = newton(my_fun,3)
+print(x1,x2,x3)
+import numpy as np
+x = np.arange(-3,4,0.01)
+y = x**3-0.5*x**2-8*x-7.5
+plt.figure(1)
+plt.plot(x,y,[x1,x2,x3],[0,0,0],'ro',linewidth=2)
+plt.grid()
+plt.show()
